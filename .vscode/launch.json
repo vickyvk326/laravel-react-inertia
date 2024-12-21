@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+      {
+        "name": "Listen for Xdebug",
+        "type": "php",
+        "request": "launch",
+        "port": 9003
+      },
+      {
+        "name": "Debug with Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://127.0.0.1:8000",
+        "webRoot": "${workspaceFolder}/resources/js",
+        "sourceMaps": true
+      }
+    ]
+  }
+  
