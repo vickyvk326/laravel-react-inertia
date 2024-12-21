@@ -64,3 +64,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Add the below line in php.ini
+
+zend_extension="C:\php\ext\php_xdebug.dll"
+xdebug.mode=debug
+xdebug.start_with_request=yes
+xdebug.client_host=127.0.0.1
+xdebug.client_port=9003
+xdebug.log="C:\php\xdebug.log"
