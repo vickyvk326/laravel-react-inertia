@@ -1,4 +1,4 @@
-import { useForm } from '@inertiajs/react'
+import { Head, useForm } from '@inertiajs/react'
 import React from 'react'
 
 const Create = () => {
@@ -15,19 +15,24 @@ const Create = () => {
 
     return (
         <>
+            <Head>
+                <title>Create post</title>
+                <meta head-key='description' name="description" content="Create a new post" />
+            </Head>
             <h1 className='title'>Create</h1>
             <div className='w-1/2 mx-auto'>
                 <form onSubmit={submit}>
                     <textarea 
                         rows={10} 
                         value={data.body} 
-                        onChange={handleTextareaChange} 
-                    ></textarea>
+                        onChange={handleTextareaChange}
+                        className={`${errors.body ? ' ring-red-500':''}`}
+                        placeholder='Write something...'
+                    />
                     {!!errors.body && 
-                        <span className='text-red-500'>{errors.body}</span>
+                        <p className='error'>{errors.body}</p>
                     }
-                    <button 
-                        type='submit' 
+                    <button
                         disabled={processing} 
                         className={`primary-btn mt-4 ${processing ? 'opacity-50' : ''}`}
                     >

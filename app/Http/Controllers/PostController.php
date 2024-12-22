@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(5);
-        return inertia('Home',['posts' => $posts]);
+        return inertia('Home', ['posts' => $posts]);
     }
 
     /**
@@ -29,7 +29,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        sleep(2);
+        $fields = $request->validate([
+            'body' => ['required'],
+        ]);
+        Post::create($fields);
+        return redirect('/');
     }
 
     /**
@@ -37,7 +42,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return inertia('Show', ['post' => $post]);
     }
 
     /**
@@ -61,6 +66,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect('/')->with('message', 'Post deleted successfully');
     }
 }
